@@ -1,6 +1,7 @@
 # Yayasan Pelangi Latihan Pemgrograman
 
 Sesi ini akan dilakukan selama 3 jam, silahkan ikuti instruksi dibawah ini.
+
 **_untuk bahasa pemrograman, framework, library dan lain lain dibebaskan_**
 
 ## Getting Started
@@ -16,9 +17,6 @@ git checkout yana
 
 I Gusti Ngurah Putu Dharma Kusuma
 git checkout dharma
-
-Krishna
-git checkout khrisna
 ```
 
 ### Penilaian
