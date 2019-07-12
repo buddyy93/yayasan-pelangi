@@ -18,10 +18,3 @@ git checkout yana
 I Gusti Ngurah Putu Dharma Kusuma
 git checkout dharma
 ```
-
-### Penilaian
-Beberapa poin poin yang menjadi acuan penilaian :
-- Desain responsive
-- Kerapian coding (robust, effective codes, follows DRY (Do not Repeat Yourself) convention)
-- Kecepatan dalam menyelesaikan masalah
-- Proses dalam menyelesaikan masalah
