@@ -5,19 +5,20 @@ require 'config.php';
 <html>
 <head>
 	<title>Yayasan Element</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltip.js/1.3.2/esm/tooltip.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.js"></script>
-    <script type="text/javascript" src="chartjs/Chart.js"></script>
+
+    <link rel="stylesheet" href="datatables/datatables.min.css">
+    <link rel="stylesheet" href="datatables/Bootstrap-4-4.1.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="datatables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="datatables/Bootstrap-4-4.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="datatables/datatables.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <div id="container" style="height: 400px"></div>
+
 </head>
 <body>
-    <div style="width: 500px;height: 500px" position="center">
-            <canvas id="myChart"></canvas>
-        </div>
 
     <table id="example" class="table" cellspacing="0" width="100%">
         <thead class="thead-dark">
@@ -28,14 +29,6 @@ require 'config.php';
                 <th>Processed</th>
             </tr>
         </thead>
-        <!--<tfoot>
-            <tr>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Region</th>
-            <th>Processed</th>
-            </tr>
-        </tfoot>-->
 
         <tbody>
         <?php
@@ -61,35 +54,53 @@ require 'config.php';
             });
             } );
             </script>
-        
-        <script  type="text/javascript">
-  var ctx = document.getElementById("piechart").getContext("2d");
-  var data = {
-            labels: [<?php while ($p = mysqli_fetch_array($merk)) { echo '"' . $p['merk'] . '",';}?>],
-            datasets: [
-            {
-              label: "Penjualan Barang",
-              data: [<?php while ($p = mysqli_fetch_array($penjualan)) { echo '"' . $p['penjualan'] . '",';}?>],
-              backgroundColor: [
-                '#29B0D0',
-                '#2A516E',
-                '#F07124',
-                '#CBE0E3',
-                '#979193'
-              ]
-            }
-            ]
-            };
 
-  var myPieChart = new Chart(ctx, {
-                  type: 'pie',
-                  data: data,
-                  options: {
-                    responsive: true
-                }
-              });
-
-</script>
+        <script>
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'pie',
+                    options3d: {
+                        enabled: true,
+                        alpha: 45,
+                        beta: 0
+                    }
+                },
+                title: {
+                    text: 'Browser market shares at a specific website, 2014'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        depth: 35,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Browser share',
+                    data: [
+                        ['Firefox', 45.0],
+                        ['IE', 26.8],
+                        {
+                            name: 'Chrome',
+                            y: 12.8,
+                            sliced: true,
+                            selected: true
+                        },
+                        ['Safari', 8.5],
+                        ['Opera', 6.2],
+                        ['Others', 0.7]
+                    ]
+                }]
+            });
+        </script>
         
         
         
