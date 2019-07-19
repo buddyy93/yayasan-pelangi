@@ -3,8 +3,8 @@
 * @var informasi untuk koneksi database
 */
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
+$dbuser = 'pras';
+$dbpass = 'h4ckc1ty1992';
 $dbname = 'yayasan-pelangi';
  
 /** koneksi ke database */
