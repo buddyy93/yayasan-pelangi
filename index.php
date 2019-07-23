@@ -20,7 +20,8 @@ require 'config.php';
 </head>
 <body>
 
-    <table id="example" class="table" cellspacing="0" width="100%">
+    
+    <table id="example" class="table highchart dataTable" cellspacing="0" width="100%">
         <thead class="thead-dark">
             <tr>
                 <th>Location</th>
@@ -66,7 +67,7 @@ require 'config.php';
                     }
                 },
                 title: {
-                    text: 'Browser market shares at a specific website, 2014'
+                    text: 'Element Inc. , 2014'
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -84,19 +85,17 @@ require 'config.php';
                 },
                 series: [{
                     type: 'pie',
-                    name: 'Browser share',
+                    name: 'Chart',
                     data: [
-                        ['Firefox', 45.0],
-                        ['IE', 26.8],
+                        ['Location', 45.0],
+                        ['Status', 26.8],
                         {
-                            name: 'Chrome',
+                            name: 'User',
                             y: 12.8,
                             sliced: true,
                             selected: true
                         },
-                        ['Safari', 8.5],
-                        ['Opera', 6.2],
-                        ['Others', 0.7]
+                        ['Region', 8.5]
                     ]
                 }]
             });

@@ -4,7 +4,7 @@
 */
 $dbhost = 'localhost';
 $dbuser = 'pras';
-$dbpass = 'h4ckc1ty1992';
+$dbpass = '';
 $dbname = 'yayasan-pelangi';
  
 /** koneksi ke database */
